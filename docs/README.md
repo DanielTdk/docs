@@ -1,5 +1,4 @@
-
-# 控银天下 行情API
+控银天下 行情API
 
 ## 规范说明
 
@@ -58,8 +57,16 @@ Version				|string		|R			|接口版本号
 SystemId			|int		|R			|机构号，请求的系统Id
 Timestamp			|long		|R			|当前UNIX时间戳
 
+| 是否   |      |      |
+| :----- | ---- | ---- |
+| 水电费 |      |      |
+| 是的s  |      |      |
+| 地方   |      |      |
 
-#### 1.6.3 校验流程：
+
+
+
+####  校验流程：
 服务端接收到请求后首先对RequestData进行DES解密出JSON字符串，然后对JSON字符串进行MD5加密，加密后的值与请求中的SignData值进行对比，如对比通过，视为合法请求，否则视为非法请求。
 
 **DES加密/解密函数示例：**
@@ -151,13 +158,13 @@ public static byte[] encrypt(String message, String key) throws Exception {
 }
 ```
 
-#### 1.6.4 DES密钥
+#### DES密钥
 
 测试环境：az2ih1uY
 
 生产环境：另外提供。
 
-#### 1.6.5 请求报文示例
+####  请求报文示例
 请求内容明文：
 
 ```
@@ -182,8 +189,8 @@ public static byte[] encrypt(String message, String key) throws Exception {
 url?RequestData=UFAYIRF21XzGoaAaEU54qoDBYaFkT2KbRpWxKZuqqltApdIneF7AjlEArPLsg3%2Fo1Pu7FHFmsKZn%0A9KJb%2BGuwx0P%2F3jzv2TgwUpVtgwEdfd0vIRfqEF4jCouldaxxVBjbHvd%2F08pUoYJDNZJLvNrJ%2BsK4%0A79de92T0Cyu4hKNMUPtVI7Tp0IC%2BBw%3D%3D&SignData=0865c7d625f90d3bb5457f5d9ac3725d
 ```
 
-### 1.7 响应报文结构
-#### 1.7.1 结构说明
+###  响应报文结构
+#### 结构说明
 所有接口响应均采用JSON格式，如无特殊说明，每次请求的返回值中，都包含下列字段：
 
 参数名称						|类型		|出现要求	|描述  
@@ -193,7 +200,7 @@ Msg							|string		|R			|响应描述
 Data						|object		|R			|每个接口特有的参数，详见每个接口定义
 
 
-#### 1.7.2 响应报文示例
+#### 响应报文示例
 
 ```
 {
@@ -207,13 +214,13 @@ Data						|object		|R			|每个接口特有的参数，详见每个接口定义
 ```
 
 
-## 2. 接口定义
+## 接口定义
 
-### 2.1 密码登录
+###  密码登录
 - **接口说明：** 密码登录
 - **接口地址：** /account/signin
 
-#### 2.1.1 请求参数
+#### 请求参数
 
 参数名称						|类型		|出现要求	|描述  
 :----						|:---		|:------	|:---	
@@ -246,7 +253,7 @@ Body						|&nbsp;		|R			|&nbsp;
 ```
 
 
-#### 2.1.2 返回结果
+#### 返回结果
 
 参数名称						|类型		|出现要求	|描述  
 :----						|:---		|:------	|:---	
@@ -269,11 +276,11 @@ Data						|object		|R			|&nbsp;
 
 
 
-### 2.2 获取登录用户信息
+### 获取登录用户信息
 - **接口说明：** 获取登录用户信息
 - **接口地址：** /account/profile
 
-#### 2.2.1 请求参数
+#### 请求参数
 
 参数名称						|类型		|出现要求	|描述  
 :----						|:---		|:------	|:---	
@@ -303,7 +310,7 @@ Body						|&nbsp;		|R			|&nbsp;
 ```
 
 
-#### 2.2.2 返回结果
+####  返回结果
 
 参数名称						|类型		|出现要求	|描述  
 :----						|:---		|:------	|:---	
@@ -338,7 +345,7 @@ Data						|object		|R			|&nbsp;
 ```
 
 
-## 3 附录A 响应码说明
+##  附录A 响应码说明
 
 响应码	|说明  
 :----	|:---
@@ -350,7 +357,7 @@ Data						|object		|R			|&nbsp;
 999		|处理失败
 
 
-## 4 附录B 币种
+## 附录B 币种
 
 币种		|说明  
 :----	|:---
